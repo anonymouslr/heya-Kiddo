@@ -348,17 +348,17 @@ img.rocket {
   }
 
   img.astraunaut {
-      height: 60vh;
+      height: 42vh;
       left: 78%;
   }
 
   #birthdayCard {
-      top: 50%;
-      left: 38%;
+      top: 65%;
+      left: 32%;
   }
   
   #birthdayCard img {
-      width: 58%;
+      width: 60%;
   }
 
   div.quote {
@@ -375,7 +375,7 @@ img.rocket {
   }
 
   .space {
-    height: 100vh;
+    height: 120vh;
   }
 
   .quote img {

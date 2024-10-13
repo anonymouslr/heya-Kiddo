@@ -1,0 +1,391 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  min-height: 100vh;
+  height: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.space {
+  width: 100%;
+  height: 150vh;
+  background-image: url("bg_21.jpg");
+  background-size: cover;
+}
+
+.land {
+  width: 100%;
+  height: 150vh;
+  background-image: url("daisy_canva2.png");
+  background-size: cover;
+}
+
+div.quote {
+  width: 23vw;
+  height: 50vh;
+  border-radius: 20px;
+  opacity: 0.6;
+  background-color: #0d0a03;
+  position: relative;
+  top: 15%;
+  left: 35%;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  font-size: 32px;
+  box-shadow: 0px 0px 25px 0px rgba(255,255,255,0.2);
+  animation: quoteMoveUpDown 1.7s ease-in-out infinite;
+}
+
+div.quote p {
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 
+               0 0 10px rgba(255, 255, 255, 0.6), 
+               0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.quote img {
+  width: 52px;
+  height: auto;
+}
+
+.land img.sunflower {
+  width: 44px;
+  height: auto;
+}
+
+#starryCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+#birthdayCard {
+  position: absolute;
+  top: 45%;
+  left: 35%;
+  width: 35vw;
+  height: auto;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(2500px);
+  transition: 2s;
+  z-index: 1;
+}
+
+#birthdayCard img {
+  width: 80%;
+  height: auto;
+}
+
+#birthdayCard.hover {
+  transform: perspective(2500px) rotate(-5deg);
+  box-shadow: inset 100px 20px 100px rgba(0,0,0,0.2),
+              0 10px 100px rgba(0,0,0,0.5);
+}
+
+#birthdayCard.hover .cardFront, #birthdayCard.hover .cardBack {
+  transform: rotateY(-160deg);
+}
+
+.cardFront {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  overflow: hidden;
+  transform-origin: left;
+  transition: 0.6s;
+}
+
+.cardInside {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+img.moon {
+  width: 40vw;
+  height: auto;
+  position: absolute;
+  bottom: 50vh;
+  right: 70vw;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+  animation: rotateMoon 60s linear infinite;
+}
+
+img.astraunaut {
+  width: auto;
+  height: 85vh;
+  position: fixed;
+  top: -150vh;
+  left: 75%;
+  z-index: 10;
+}
+
+img.animate-astronomer {
+  transform: translateX(-50%);
+  transition: top 3.5s ease-in-out;
+  animation: rotationAndTransition 2s ease-in-out 1s infinite;
+}
+
+img.rocket {
+  height: 25%;
+  width: auto;
+  z-index: -10;
+  position: absolute;
+  bottom: -300px;
+  left: -100px;
+  transform: rotate(0deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes rotateMoon {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes quoteMoveUpDown {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-15px); }
+}
+
+@keyframes moveUpDown {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-25px); }
+}
+
+@keyframes rotationAndTransition {
+  0%, 100% { transform: translateX(-50%) rotate(8deg); }
+  50% { transform: translateX(-50%) rotate(-8deg); }
+}
+
+@keyframes scrollDownAnimation {
+  0% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-8%); }
+  100% { transform: translateX(-50%) translateY(0); }
+}
+
+/* Responsiveness */
+
+@media only screen and (max-width: 1366px){
+  img.moon{
+    width: 40vw;
+    height: auto;
+    bottom: 50vh;
+    right: 70vw;
+  }
+  
+  img.astraunaut {
+    height: 85vh;
+    left:72%;
+  }
+  #birthdayCard {
+    top: 45%;
+    left: 35%;
+    width: auto;
+  }
+
+  #birthdayCard img {
+    width: 38%;
+  }
+
+  div.quote {  
+    width: 30vw;
+    height: 55vh;
+    left: 38%;
+    top: 8%;
+    padding: 3%;
+    font-size: 40px;
+  }
+
+  .land {
+    height: 120vh;
+  }
+}
+/* ---- */
+@media only screen and (max-width: 1280px) {
+  img.moon{
+    width: 40vw;
+    height: auto;
+    bottom: 50vh;
+    right: 70vw;
+  }
+  
+  img.astraunaut {
+    height: 80vh;
+    left:72%;
+  }
+
+  #birthdayCard {
+    top: 45%;
+    left: 35%;
+    width: auto;
+  }
+
+  #birthdayCard img {
+    width: 42%;
+  }
+
+  div.quote {  
+    width: 30vw;
+    height: 55vh;
+    left: 38%;
+    top: 8%;
+    padding: 3%;
+    font-size: 40px;
+  }
+
+  .land {
+    height: 120vh;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  img.moon {
+      height: 65vh;
+      width: auto;
+      bottom: 52vh;
+      right: 62vw;
+  }
+
+  img.astraunaut {
+      height: 70vh;
+      left: 75%;
+  }
+
+  #birthdayCard {
+      top: 45%;
+      left: 35%;
+  }
+  
+  #birthdayCard img {
+      width: 45%;
+  }
+
+  div.quote {
+      width: 40vw;
+      height: 45vh;
+      left: 33%;
+      font-size: 34px;
+  }
+
+  .land {
+      height: 120vh;
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  img.moon {
+      height: 60vh;
+      width: auto;
+      bottom: 55vh;
+      right: 47vw;
+  }
+
+  img.astraunaut {
+      height: 60vh;
+      left: 78%;
+  }
+
+  #birthdayCard {
+      top: 50%;
+      left: 38%;
+  }
+  
+  #birthdayCard img {
+      width: 55%;
+  }
+
+  div.quote {
+      width: 45vw;
+      height: 35vh;
+      left: 33%;
+      font-size: 34px;
+      padding: 40px;
+  }
+
+ .land {
+      height: 120vh;
+  }
+
+  .space {
+    height: 110vh;
+  }
+}
+
+/* For small phones up to 400px */
+@media only screen and (max-width: 400px) {
+  body{
+    overflow-x: hidden;
+  }
+  img.moon {
+      height: 55vh;
+      width: auto;
+      bottom: 60vh;
+      right: 42vw;
+  }
+
+  img.astraunaut {
+      height: 60vh;
+      left: 78%;
+  }
+
+  #birthdayCard {
+      top: 50%;
+      left: 38%;
+  }
+  
+  #birthdayCard img {
+      width: 58%;
+  }
+
+  div.quote {
+      width: 45vw;
+      height: 28vh;
+      left: 33%;
+      top: 20%;
+      font-size: 16px;
+      padding: 20px;
+  }
+
+ .land {
+      height: 120vh;
+  }
+
+  .space {
+    height: 100vh;
+  }
+
+  .quote img {
+    width: 35px;
+    height: auto;
+    padding-top: 5%;
+  }
+  
+  .land img.sunflower {
+    width: 30px;
+    height: auto;
+  }
+}
